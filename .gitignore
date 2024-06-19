@@ -1,4 +1,6 @@
 # Files
 
 # Folder
+dist/
 folder_manager/__pycache__
+folder_manager.egg-info/
