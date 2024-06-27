@@ -25,12 +25,26 @@ class Folder:
         except OSError as e:
             raise FolderError(f"Error listing files: {e}")
 
+    def list_files_with_extension(self, extension: str) -> List[str]:
+        """List all files in the folder with the specified extension."""
+        try:
+            return [file for file in os.listdir(self.path) if file.endswith(f".{extension}")]
+        except OSError as e:
+            raise FolderError(f"Error listing files with extension '{extension}': {e}")
+
     def count_files(self) -> int:
         """Count the number of files in the folder."""
         try:
             return len(os.listdir(self.path))
         except OSError as e:
             raise FolderError(f"Error counting files: {e}")
+
+    def count_files_with_extension(self, extension: str) -> int:
+        """Count the number of files in the folder with the specified extension."""
+        try:
+            return len([file for file in os.listdir(self.path) if file.endswith(f".{extension}")])
+        except OSError as e:
+            raise FolderError(f"Error counting files with extension '{extension}': {e}")
 
     def create_file(self, file_name: str, content: str = "") -> bool:
         """Create a new file with the specified content."""
