@@ -57,28 +57,43 @@ def main():
     except FolderError as e:
         print(f"Error: {e}")
 
-    # 8. Delete the File
+    # 8. List Files with Specific Extension in the Folder
+    extension = "txt"
+    try:
+        files_with_extension = folder.list_files_with_extension(extension)
+        print(f"Files with extension .{extension}: {files_with_extension}")  # Returns a list of filenames with the specified extension
+    except FolderError as e:
+        print(f"Error: {e}")
+
+    # 9. Count Files with Specific Extension in the Folder
+    try:
+        file_count_with_extension = folder.count_files_with_extension(extension)
+        print(f"Number of files with extension .{extension}: {file_count_with_extension}")  # Returns the number of files with the specified extension
+    except FolderError as e:
+        print(f"Error: {e}")
+
+    # 10. Delete the File
     try:
         result = folder.delete_file(file_name)
         print(f"File deleted: {result}")  # Returns True if the file was deleted successfully
     except FolderError as e:
         print(f"Error: {e}")
 
-    # 9. List Files again to see the remaining files
+    # 11. List Files again to see the remaining files
     try:
         files = folder.list_files()
         print(f"Files in folder after deleting file: {files}")  # Returns a list of filenames in the folder
     except FolderError as e:
         print(f"Error: {e}")
 
-    # 10. Delete the Folder
+    # 12. Delete the Folder
     try:
         result = folder.delete_folder()
         print(f"Folder deleted: {result}")  # Returns True if the folder was deleted successfully
     except FolderError as e:
         print(f"Error: {e}")
 
-    # 11. Check if the Folder Exists
+    # 13. Check if the Folder Exists
     if folder.folder_exists():
         print(f"Folder '{folder_path}' exists.")
     else:

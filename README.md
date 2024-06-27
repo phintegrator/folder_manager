@@ -7,6 +7,8 @@
 - **Create Folder:** Create a new folder at a specified path.
 - **List Files:** List all files in a specified folder.
 - **Count Files:** Count the number of files in a specified folder.
+- **List Files with Specific Extension**: List all files in a specified folder with a specific extension.
+- **Count Files with Specific Extension**: Count the number of files in a specified folder with a specific extension.
 - **Create File:** Create a new file with optional content.
 - **Delete File:** Delete a specified file.
 - **Delete Folder:** Delete a specified folder and all its contents.
@@ -77,8 +79,33 @@ folder = Folder("/path/to/folder")
     except FolderError as e:
         print(e)
     ```
-    
-4. **Create a File:**
+
+4. **List Files with Specific Extension in a Folder:**
+
+    ```python
+    folder = Folder("/path/to/folder")
+    extension = "txt"
+    try:
+        files_with_extension = folder.list_files_with_extension(extension)
+        print(f"Files with extension .{extension}: {files_with_extension}")  # Returns a list of filenames with the specified extension
+    except FolderError as e:
+        print(e)
+    ```
+
+5. **Count Files with Specific Extension in a Folder:**
+
+    ```python
+    folder = Folder("/path/to/folder")
+    extension = "txt"
+    try:
+        file_count_with_extension = folder.count_files_with_extension(extension)
+        print(f"Number of files with extension .{extension}: {file_count_with_extension}")  # Returns the number of files with the specified extension
+    except FolderError as e:
+        print(e)
+    ```
+
+
+6. **Create a File:**
     
     ```python
     folder = Folder("/path/to/folder")
@@ -89,7 +116,7 @@ folder = Folder("/path/to/folder")
         print(e)
     ```
     
-5. **Delete a File:**
+7. **Delete a File:**
     
     ```python
     folder = Folder("/path/to/folder")
@@ -100,7 +127,7 @@ folder = Folder("/path/to/folder")
         print(e)
     ```
     
-6. **Delete a Folder:**
+8. **Delete a Folder:**
     
     ```python
     folder = Folder("/path/to/folder")
@@ -111,7 +138,7 @@ folder = Folder("/path/to/folder")
         print(e)
     ```
     
-7. **Check if a Folder Exists:**
+9. **Check if a Folder Exists:**
     
     ```python
     folder = Folder("/path/to/folder")
@@ -121,7 +148,7 @@ folder = Folder("/path/to/folder")
         print("Folder does not exist.")
     ```
     
-8. **Check if a File Exists:**
+10. **Check if a File Exists:**
     
     ```python
     folder = Folder("/path/to/folder")
